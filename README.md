@@ -1,4 +1,4 @@
-<p>Ruta de la aplicación web (localhost y el puerto pueden ser modificables en el archivo docker-compose.yml): <strong>http://localhost:8080/SOSv5/service-order-system/home/</strong><br/>nickname administrador: <strong>ELENA86</strong><br/>
+<p>Ruta de la aplicación web una vez iniciado los contenedores (localhost y el puerto pueden ser modificables en el archivo docker-compose.yml):<br/> <strong>http://localhost:8080/SOSv5/service-order-system/home/</strong><br/>nickname administrador: <strong>ELENA86</strong><br/>
 contraseña: <strong>mi_nena</strong></p>
 <strong>Consideraciones</strong>:<br/>
 <p>Puedes descargar Docker desktop dando click a este enlace: <a href="https://docs.docker.com/desktop/setup/install/windows-install/" target="_blank">Docker desktop</a></p>
