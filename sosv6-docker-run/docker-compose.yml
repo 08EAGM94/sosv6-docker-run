@@ -17,7 +17,7 @@ services:
       - SQL_USER=sa
       - SQL_PASSWORD=PasswordSeguro123!
     # en localhost solo se podrá ver la aplicación web en la maquina donde se ejecute el docker compose, si se quiere ver en otros dispositivos a parte de la maquina anfitrion hay que sustituir el localhost de esta variable de entorno por tu IPv4 conectado a tu red local, hacer esto es completamente opcional.
-      - SOSV5_URL=http://localhost:8081/SOSv5/service-order-system/ 
+      - SOSV6_URL=http://localhost:8081/SOSv6/service-order-system/ 
     networks:
       - sosv6-network 
     depends_on:
