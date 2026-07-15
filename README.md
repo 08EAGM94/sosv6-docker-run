@@ -11,4 +11,4 @@ contraseña: <strong>interpc_2025</strong></p>
 <br/>
 <div align="center"><img width="848" height="145" alt="images" src="https://github.com/user-attachments/assets/6ec2418a-6f67-4379-9dc6-57991c58047b" /></div>
 <p>Se puede ejecutar pruebas de las funcionalidades del sistema de ordenes de servicio en un CMD, tanto del lado del cliente (Jest) como del lado del servidor (Pest).<br/>
-Ejecución de Pest: <strong>docker exec -w /var/www/html/SOSv6/service-order-system/ php_sosv6_app ./vendor/bin/pest -vvv</strong><br/>Ejecución de Jest: <strong>docker run --rm sosv6-jest:latest npm run test</strong></p>
+Ejecución de Pest: <strong>docker exec -w /var/www/html/SOSv6/service-order-system/ php_sosv6_app ./vendor/bin/pest -vvv</strong><br/>Ejecución de Jest: <strong>docker run --rm 08edgarallan94/service-order-system-sosv6-jest-tests:latest npm run test</strong></p>
