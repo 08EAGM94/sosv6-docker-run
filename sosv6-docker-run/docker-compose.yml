@@ -1,29 +1,34 @@
 services:
   web:
-    image: 08edgarallan94/service-order-system-sosv5:latest 
+    image: 08edgarallan94/service-order-system-sosv6:latest 
     deploy:
       resources:
         limits:
           memory: 1024M
         reservations:
           memory: 256M
-    container_name: php_sosv5_app
+    container_name: php_sosv6_app
     ports:
     # la imagen tiene el puerto 80 definido, solo es cuestión de cambiar el primer puerto (el de la maquina anfitrión: 8081) por cualquier puerto que quieras, el segundo puerto (el del contenedor: 80) dejalo como está.
       - "8081:80" 
     environment:
       - SQL_SERVER=mssql_server
-      - SQL_DATABASE=SOSv5DB
+      - SQL_DATABASE=SOSv6DB
       - SQL_USER=sa
       - SQL_PASSWORD=PasswordSeguro123!
     # en localhost solo se podrá ver la aplicación web en la maquina donde se ejecute el docker compose, si se quiere ver en otros dispositivos a parte de la maquina anfitrion hay que sustituir el localhost de esta variable de entorno por tu IPv4 conectado a tu red local, hacer esto es completamente opcional.
-      - SOSV5_URL=http://localhost:8081/SOSv5/service-order-system/ 
+      - SOSV6_URL=http://localhost:8081/SOSv6/service-order-system/ 
     networks:
-      - sosv5-network 
+      - sosv6-network 
     depends_on:
       - db 
     volumes:
-      - web_data:/var/www/html 
+      - web_data:/var/www/html
+  jest:
+    image: 08edgarallan94/service-order-system-sosv6-jest-tests:latest
+    container_name: jest_tests
+    networks:
+      - sosv6-network     
   db:
     build:
       context: .
@@ -36,13 +41,13 @@ services:
     # puedes cambiar el puerto de la maquina anfitrión por el puerto que creas conveniente, la imagen no tiene definida un puerto de contenedor en concreto, por lo que tambien eres libre de cambiar el puerto del contenedor.
       - "1434:1433"
     networks:
-      - sosv5-network 
+      - sosv6-network 
     volumes:
       - sql_data:/var/opt/mssql/sql_data
       - ./backup:/var/opt/mssql/backup
 
 networks:
-  sosv5-network:
+  sosv6-network:
     driver: bridge 
 
 volumes:
