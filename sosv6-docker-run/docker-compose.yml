@@ -9,7 +9,7 @@ services:
           memory: 256M
     container_name: php_sosv6_app
     ports:
-    # la imagen tiene el puerto 80 definido, solo es cuestión de cambiar el primer puerto (el de la maquina anfitrión: 8081) por cualquier puerto que quieras, el segundo puerto (el del contenedor: 80) dejalo como está.
+    # puedes definir los puertos maquina_anfitrion:contenedor que creas conveniente, solo hay que tener en cuenta los permisos de conexión del puerto de la maquina anfitrión o si el puerto está siendo utilizado por otra instancia.
       - "8081:80" 
     environment:
       - SQL_SERVER=mssql_server
@@ -17,7 +17,7 @@ services:
       - SQL_USER=sa
       - SQL_PASSWORD=PasswordSeguro123!
     # en localhost solo se podrá ver la aplicación web en la maquina donde se ejecute el docker compose, si se quiere ver en otros dispositivos a parte de la maquina anfitrion hay que sustituir el localhost de esta variable de entorno por tu IPv4 conectado a tu red local, hacer esto es completamente opcional.
-      - SOSV6_URL=http://localhost:8081/SOSv6/service-order-system/ 
+      - SOSV5_URL=http://localhost:8081/SOSv5/service-order-system/ 
     networks:
       - sosv6-network 
     depends_on:
@@ -38,7 +38,7 @@ services:
       - ACCEPT_EULA=Y
       - MSSQL_SA_PASSWORD=PasswordSeguro123!
     ports:
-    # puedes cambiar el puerto de la maquina anfitrión por el puerto que creas conveniente, la imagen no tiene definida un puerto de contenedor en concreto, por lo que tambien eres libre de cambiar el puerto del contenedor.
+    # puedes cambiar los puertos maquina_anfitrion:contenedor por los que creas conveniente, solo hay que tener en cuenta los permisos de conexión del puerto de la maquina anfitrión o si el puerto está siendo utilizado por otra instancia.
       - "1434:1433"
     networks:
       - sosv6-network 
